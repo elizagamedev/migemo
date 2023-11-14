@@ -691,9 +691,9 @@ into the migemo's regexp pattern."
 (when (and (not (featurep 'xemacs))
            (fboundp 'isearch-yank-line))
   (defun migemo-register-isearch-keybinding ()
-    (define-key isearch-mode-map "\C-d" 'migemo-isearch-yank-char)
-    (define-key isearch-mode-map "\C-w" 'migemo-isearch-yank-word)
-    (define-key isearch-mode-map "\C-y" 'migemo-isearch-yank-line)
+    (define-key isearch-mode-map [remap isearch-yank-char] 'migemo-isearch-yank-char)
+    (define-key isearch-mode-map [remap isearch-yank-word-or-char] 'migemo-isearch-yank-word)
+    (define-key isearch-mode-map [remap isearch-yank-line] 'migemo-isearch-yank-line)
     (define-key isearch-mode-map "\M-m" 'migemo-isearch-toggle-migemo))
 
   (setq migemo-register-isearch-keybinding-function 'migemo-register-isearch-keybinding)
